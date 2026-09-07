@@ -1,0 +1,713 @@
+DROP TABLESQL*Plus: Release 11.2.0.1.0 Production on Mon Jul 27 09:24:45 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A184@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> craete table student(
+SP2-0734: unknown command beginning "craete tab..." - rest of line ignored.
+SQL> regnumber varchar2(20),
+SP2-0734: unknown command beginning "regnumber ..." - rest of line ignored.
+SQL> create table student(
+  2  regnumber varchar2(20),
+  3  studname varchar2(50),
+  4  dob date,
+  5  studstate varchar2(20),
+  6  depname varchar2(10),
+  7  pincode number(6),
+  8  year number(4),
+  9  studaddress1 varchar2(100),
+ 10  studaddress2 varchar2(50),
+ 11  cousename varchar2(50),
+ 12  studcity varchar2(10),
+ 13  gender char
+ 14  );
+create table student(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create Table Student(
+  2      regnumber varchar2(20),
+  3      studname varchar2(50),
+  4      dob date,
+  5      studstate varchar2(20),
+  6      depname varchar2(10),
+  7      pincode number(6),
+  8      year number(4),
+  9      studaddress1 varchar2(100),
+ 10     studaddress2 varchar2(50),
+ 11    cousename varchar2(50),
+ 12     studcity varchar2(10),
+ 13     gender char
+ 14     );
+create Table Student(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create Table Students(
+  2      regnumber varchar2(20),
+  3      studname varchar2(50),
+  4      dob date,
+  5      studstate varchar2(20),
+  6      depname varchar2(10),
+  7      pincode number(6),
+  8      year number(4),
+  9      studaddress1 varchar2(100),
+ 10     studaddress2 varchar2(50),
+ 11    cousename varchar2(50),
+ 12     studcity varchar2(10),
+ 13     gender char
+ 14     );
+
+Table created.
+
+SQL> desc students
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNUMBER                                          VARCHAR2(20)
+ STUDNAME                                           VARCHAR2(50)
+ DOB                                                DATE
+ STUDSTATE                                          VARCHAR2(20)
+ DEPNAME                                            VARCHAR2(10)
+ PINCODE                                            NUMBER(6)
+ YEAR                                               NUMBER(4)
+ STUDADDRESS1                                       VARCHAR2(100)
+ STUDADDRESS2                                       VARCHAR2(50)
+ COUSENAME                                          VARCHAR2(50)
+ STUDCITY                                           VARCHAR2(10)
+ GENDER                                             CHAR(1)
+
+SQL> insert into Students values(
+  2  '11249A184',
+  3  'Lalitha',
+  4  '09-nov-2006',
+  5  'Telengana',
+  6  'cse',
+  7  '500003',
+  8  '3',
+  9  'Rasoolpura',
+ 10  'Policeline',
+ 11  'Aiml',
+ 12  'Hyderabad',
+ 13  'Female'
+ 14  );
+'Female'
+*
+ERROR at line 13:
+ORA-12899: value too large for column "A184"."STUDENTS"."GENDER" (actual: 6,
+maximum: 1)
+
+
+SQL> insert into Students values(
+  2      '11249A184',
+  3      'Lalitha',
+  4      '09-nov-2006',
+  5      'Telengana',
+  6      'cse',
+  7      '500003',
+  8      '3',
+  9      'Rasoolpura',
+ 10     'Policeline',
+ 11     'Aiml',
+ 12     'Hyderabad',
+ 13     'F'
+ 14     );
+
+1 row created.
+
+SQL> select * from Students
+  2
+SQL> select *from Students
+  2
+SQL> insert into Students values(
+  2      '11249A184',
+  3      'Lalitha',
+  4      '09-nov-2006',
+  5      'Telengana',
+  6      'cse',
+  7      '500003',
+  8      '3',
+  9      'Rasoolpura',
+ 10     'Policeline',
+ 11     'Aiml',
+ 12     'Hyderabad',
+ 13     'F'
+ 14     );
+
+1 row created.
+
+SQL> select *from students
+  2
+SQL>  insert into Students values(
+  2      '11249A184',
+  3      'Lalitha',
+  4      '09-nov-2006',
+  5      'Telengana',
+  6      'cse',
+  7      500003,
+  8      3,
+  9      'Rasoolpura',
+ 10     'Policeline',
+ 11     'Aiml',
+ 12     'Hyderabad',
+ 13     'F'
+ 14     );
+
+1 row created.
+
+SQL> select *from Students
+  2
+SQL>  insert into Students values(
+  2      '11249A184',
+  3      'Lalitha',
+  4      '09-nov-2006',
+  5      'Telengana',
+  6      'cse',
+  7      500003,
+  8      3,
+  9      'Rasoolpura',
+ 10     'Policeline',
+ 11     'Aiml',
+ 12     'Hyderabad',
+ 13     'F'
+ 14     );
+
+1 row created.
+
+SQL> select *from Students;
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+SQL>  insert into Students values(
+  2      '11249A184',
+  3      'Lalitha',
+  4      '09-nov-2006',
+  5      'Telengana',
+  6      'cse',
+  7      500003,
+  8      3,
+  9      'Rasoolpura',
+ 10     'Policeline',
+ 11     'Aiml',
+ 12     'Hyderabad',
+ 13     'F'
+ 14     );
+
+1 row created.
+
+SQL> select *from Students;
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+11249A184            Lalitha
+09-NOV-06 Telengana            cse            500003          3
+Rasoolpura
+
+REGNUMBER            STUDNAME
+-------------------- --------------------------------------------------
+DOB       STUDSTATE            DEPNAME       PINCODE       YEAR
+--------- -------------------- ---------- ---------- ----------
+STUDADDRESS1
+--------------------------------------------------------------------------------
+STUDADDRESS2
+--------------------------------------------------
+COUSENAME                                          STUDCITY   G
+-------------------------------------------------- ---------- -
+Policeline
+Aiml                                               Hyderabad  F
+
+
+SQL>
+SQL> CREATE TABLE Students(
+  2  regno NUMBER(6),
+  3  name VARCHAR2(20),
+  4  dob DATE,
+  5  address VARCHAR2(40),
+  6  state VARCHAR2(20),
+  7  pincode NUMBER(6),
+  8  coursename VARCHAR2(20),
+  9  year NUMBER(1),
+ 10  deptname VARCHAR2(20)
+ 11  );
+CREATE TABLE Students(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE Student1(
+  2      regno NUMBER(6),
+  3      name VARCHAR2(20),
+  4      dob DATE,
+  5      address VARCHAR2(40),
+  6      state VARCHAR2(20),
+  7    pincode NUMBER(6),
+  8      coursename VARCHAR2(20),
+  9      year NUMBER(1),
+ 10     deptname VARCHAR2(20)
+ 11    );
+
+Table created.
+
+SQL> DESC Student1
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(6)
+ NAME                                               VARCHAR2(20)
+ DOB                                                DATE
+ ADDRESS                                            VARCHAR2(40)
+ STATE                                              VARCHAR2(20)
+ PINCODE                                            NUMBER(6)
+ COURSENAME                                         VARCHAR2(20)
+ YEAR                                               NUMBER(1)
+ DEPTNAME                                           VARCHAR2(20)
+
+SQL> create table Student4 as select *from Student1;
+
+Table created.
+
+SQL> desc Student4;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(6)
+ NAME                                               VARCHAR2(20)
+ DOB                                                DATE
+ ADDRESS                                            VARCHAR2(40)
+ STATE                                              VARCHAR2(20)
+ PINCODE                                            NUMBER(6)
+ COURSENAME                                         VARCHAR2(20)
+ YEAR                                               NUMBER(1)
+ DEPTNAME                                           VARCHAR2(20)
+
+SQL> create table Student5 as select REGNO, NAME, COUSENAME from Student1;
+create table Student5 as select REGNO, NAME, COUSENAME from Student1
+                                             *
+ERROR at line 1:
+ORA-00904: "COUSENAME": invalid identifier
+
+
+SQL> create table Student5 as select REGNO, NAME, COURSENAME from Student1;
+
+Table created.
+
+SQL> Desc Student5;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(6)
+ NAME                                               VARCHAR2(20)
+ COURSENAME                                         VARCHAR2(20)
+
+SQL> INSERT INTO Student1 values(
+  2  '11249A184',
+  3  'LALITHA',
+  4  '09-NOV-2006',
+  5  'TELENGANA',
+  6  'CSE',
+  7  500003,
+  8  3,
+  9  'Rasoolpura near indramman statue',
+ 10
+SQL> INSERT INTO Student1 values(
+  2    2  '11249A184',
+  3    3  'LALITHA',
+  4    4  '09-NOV-2006',
+  5    5  'TELENGANA',
+  6    6  'CSE',
+  7    7  500003,
+  8    8  3,
+  9    9  'Rasoolpura near indramma statue',
+ 10
+SQL> INSERT INTO Student1 values(
+  2      '11249A184',
+  3     'LALITHA',
+  4      '09-NOV-2006',
+  5      'TELENGANA',
+  6      'CSE',
+  7      500003,
+  8      3,
+  9      'Rasoolpura near indramma statue',
+ 10  'Policeline',
+ 11  'Aiml',
+ 12  'Hyderabad',
+ 13  'F'
+ 14  );
+INSERT INTO Student1 values(
+            *
+ERROR at line 1:
+ORA-00913: too many values
+
+
+SQL> insert into Student1 values(
+  2         '11249A184',
+  3        'LALITHA',
+  4         '09-NOV-2006',
+  5           'CSE',
+  6         'Telengana',
+  7        500003,
+  8         3,
+  9         'Rasoolpura near indramma statue',
+ 10     'Policeline',
+ 11     'Aiml',
+ 12     'Hyderabad',
+ 13     'F'
+ 14    );
+insert into Student1 values(
+            *
+ERROR at line 1:
+ORA-00913: too many values
+
+
+SQL>
+SQL> insert into Student1 values(
+  2         '184',
+  3        'LALITHA',
+  4         '09-NOV-2006',
+  5          'Rasoolpura near indramma statue',
+  6         'Telengana',
+  7        500003,
+  8     'Aiml',
+  9         3,
+ 10       'CSE',
+ 11    );
+  )
+  *
+ERROR at line 11:
+ORA-00936: missing expression
+
+
+SQL>
+SQL> insert into Student1 values (
+  2         '184',
+  3        'lalitha',
+  4         '09-NOV-2006',
+  5          'Rasoolpura near indramma statue',
+  6         'Telengana',
+  7        500003,
+  8     'Aiml',
+  9         3,
+ 10       'CSE'
+ 11    );
+
+1 row created.
+
+SQL> select *from Student1;
+
+     REGNO NAME                 DOB
+---------- -------------------- ---------
+ADDRESS                                  STATE                   PINCODE
+---------------------------------------- -------------------- ----------
+COURSENAME                 YEAR DEPTNAME
+-------------------- ---------- --------------------
+       184 lalitha              09-NOV-06
+Rasoolpura near indramma statue          Telengana                500003
+Aiml                          3 CSE
+
+
+SQL> SET LINESIZE 150
+SQL> SELECT *FROM Student1;
+
+     REGNO NAME                 DOB       ADDRESS                                  STATE                   PINCODE COURSENAME                 YEAR
+---------- -------------------- --------- ---------------------------------------- -------------------- ---------- -------------------- ----------
+DEPTNAME
+--------------------
+       184 lalitha              09-NOV-06 Rasoolpura near indramma statue          Telengana                500003 Aiml                          3
+CSE
+
+
+SQL> Create table student6 as select *from Student1 where 1=2;
+
+Table created.
+
+SQL> desc student6
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ REGNO                                                                                        NUMBER(6)
+ NAME                                                                                         VARCHAR2(20)
+ DOB                                                                                          DATE
+ ADDRESS                                                                                      VARCHAR2(40)
+ STATE                                                                                        VARCHAR2(20)
+ PINCODE                                                                                      NUMBER(6)
+ COURSENAME                                                                                   VARCHAR2(20)
+ YEAR                                                                                         NUMBER(1)
+ DEPTNAME                                                                                     VARCHAR2(20)
+
+SQL> create table student as select *from Student1;
+create table student as select *from Student1
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table student7 as select *from Student1;
+
+Table created.
+
+SQL> desc student7
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ REGNO                                                                                        NUMBER(6)
+ NAME                                                                                         VARCHAR2(20)
+ DOB                                                                                          DATE
+ ADDRESS                                                                                      VARCHAR2(40)
+ STATE                                                                                        VARCHAR2(20)
+ PINCODE                                                                                      NUMBER(6)
+ COURSENAME                                                                                   VARCHAR2(20)
+ YEAR                                                                                         NUMBER(1)
+ DEPTNAME                                                                                     VARCHAR2(20)
+
+SQL>
+SQL> create
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
