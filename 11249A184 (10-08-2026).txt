@@ -1,0 +1,275 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Aug 10 10:52:57 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A184@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> CREATE TABLE students (
+  2      student_id INT,
+  3      student_name VARCHAR(100),
+  4      age INT,
+  5      course VARCHAR(50),
+  6      marks INT
+  7  );
+
+
+SQL> drop table students;
+
+Table dropped.
+
+SQL> CREATE TABLE Students (
+  2      student_id INT,
+  3      student_name VARCHAR(100),
+  4      age INT,
+  5      course VARCHAR(50),
+  6      marks INT
+  7  );
+
+Table created.
+
+SQL> ALTER TABLE STUDENTS
+  2  ADD CONSTRAINTS STUDENTS_PK PRIMARY KEY(students_id);
+ADD CONSTRAINTS STUDENTS_PK PRIMARY KEY(students_id)
+
+SQL> CREATE TABLE Student(
+  2      student_id INT,
+  3      student_name VARCHAR(100),
+  4      age INT,
+  5      course VARCHAR(50),
+  6      marks INT
+  7  );
+
+
+SQL> drop table student;
+
+Table dropped.
+
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINTS STUDENT_PK PRIMARY KEY(student_id);
+
+
+SQL> CREATE TABLE Student(
+  2      student_id INT,
+  3      student_name VARCHAR(100),
+  4      age INT,
+  5      course VARCHAR(50),
+  6      marks INT
+  7  );
+
+Table created.
+
+SQL> ALTER TABLE STUDENT
+  2   ADD CONSTRAINTS STUDENT_PK PRIMARY KEY(student_id);
+
+Table altered.
+
+SQL> alter table STUDENT
+  2  add constraint student_name_uk unique (name);
+
+
+SQL>
+SQL> alter table STUDENT
+  2   add constraint student_name_uk unique (NAME);
+
+
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINT student_name_uk UNIQUE (NAME);
+
+
+SQL> ALTER TABLE students
+  2  ADD CONSTRAINT student_name_uk UNIQUE (student_name);
+
+Table altered.
+
+SQL> ALTER TABLE students
+  2  ADD CONSTRAINT student_age_uk UNIQUE (age);
+
+Table altered.
+
+
+SQL> create table department (
+  2     dept_id number primary key,
+  3      dept_name varchar2(30)
+  4     );
+
+Table created.
+
+SQL> INSERT INTO department VALUES (10, 'Computer Science');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (20, 'Commerce');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (30, 'Mathematics');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (40, 'Physics');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (50, 'English');
+
+1 row created.
+
+SQL> select *from department;
+
+   DEPT_ID DEPT_NAME
+---------- ------------------------------
+        10 Computer Science
+        20 Commerce
+        30 Mathematics
+        40 Physics
+        50 English
+
+SQL> ALTER TABLE STUIDENT
+  2  ADD DEPT_ID NUMBER;
+
+
+SQL> ALTER TABLE students
+  2  ADD dept_id NUMBER;
+
+Table altered.
+
+SQL> alter table STUDENT
+  2  ADD constraint student_dept_fk
+  3  foreign key(dept_id)
+  4  references department(dept_id);
+
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINT student_dept_fk
+  3  FOREIGN KEY (DEPT_ID)
+  4  REFERENCES department(DEPT_ID)
+
+
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINT student_dept_fk
+  3  FOREIGN KEY (DEPT_ID)
+  4  REFERENCES DEPARTMENT(DEPT_ID);
+
+
+SQL> ALTER TABLE STUDENTS
+  2  ADD DEPT_ID NUMBER;
+
+SQL> drop table students;
+
+Table dropped.
+
+SQL> ALTER TABLE STUDENTS
+  2  ADD DEPT_ID NUMBER;
+
+SQL> ALTER TABLE STUDENT
+  2  ADD DEPT_ID NUMBER;
+
+Table altered.
+
+SQL>
+SQL> ALTER TABLE STUDENT
+  2  ADD CONSTRAINT student_dept_fk
+  3  FOREIGN KEY (DEPT_ID)
+  4  REFERENCES DEPARTMENT(DEPT_ID);
+
+Table altered.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                NOT NULL NUMBER(38)
+ STUDENT_NAME                                       VARCHAR2(100)
+ AGE                                                NUMBER(38)
+ COURSE                                             VARCHAR2(50)
+ MARKS                                              NUMBER(38)
+ DEPT_ID                                            NUMBER
+
+SQL> INSERT INTO STUDENT
+  2  VALUES (1, 'Arun', 20, 'BCA', 85, 10);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT
+  2  VALUES (2, 'Priya', 21, 'BSc', 90, 20);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT
+  2  VALUES (3, 'Kumar', 19, 'BCom', 78, 30);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT
+  2  VALUES (4, 'Ravi', 20, 'BCA', 88, 10);
+
+1 row created.
+
+SQL>
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> select *from STUDENT;
+
+
+
+SQL> SELECT student_id, student_name, age, course, marks, dept_id
+  2  FROM student;
+SQL> ----------  ------------   ---  -------  -----  -------
+SQL> 1           Arun            20  BCA         85       10
+SQL> 2           Priya           21  BSc         90       20
+SQL> 3           Kumar           19  BCom        78       30
+SQL> 4           Ravi             20  BCA         88       10
+
+
+
+SQL> ALTER TABLE STUDENT
+  2  MODIFY STUDENT_NAME CONSTRAINT STUDENT_NAME_NN NOT NULL;
+
+Table altered.
+
+SQL> INSERT INTO STUDENT
+  2
+SQL> ALTER TABLE STUDENT
+  2  MODIFY MARKS DEFAULT 50;
+
+Table altered.
+
+
+SQL> INSERT INTO STUDENT
+  2      (STUDENT_ID, STUDENT_NAME, AGE, COURSE, DEPT_ID)
+  3  VALUES
+  4      (105, 'Kiran', 20, 'CSE', 10);
+
+1 row created.
+
+SQL> SELECT STUDENT_ID, STUDENT_NAME, AGE, COURSE, MARKS, DEPT_ID
+  2  FROM STUDENT;
+
+
+SQL> ----------  ------------   ---  -------  -----  -------
+SQL> 1           Arun            20  BCA         85       10
+SQL> 2           Priya           21  BSc         90       20
+SQL> 3           Kumar            19  BCom        78       30
+SQL> 4           Ravi             20  BCA         88       10
+SQL> 105         Kiran            20  CSE         50       10
+
+
+
+
+SQL> ALTER TABLE STUDENT
+  2  DISABLE CONSTRAINT STUDENT_PK;
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT
+  2  ENABLE CONSTRAINT STUDENT_PK;
+
+Table altered.
