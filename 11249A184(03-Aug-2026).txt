@@ -1,0 +1,227 @@
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Aug 3 13:01:06 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A184@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> drop table student4;
+
+Table dropped.
+SQL> CREATE TABLE dept (    deptno NUMBER(2) PRIMARY KEY,    dname VARCHAR2(20));
+
+Table created.
+
+SQL>
+SQL>  CREATE TABLE Student4(
+  2        stuno NUMBER(4),
+  3        sname VARCHAR2(20),
+  4        deptno NUMBER(2) CONSTRAINT stu_fkey
+  5             REFERENCES dept(deptno),
+  6     fee NUMBER(5)
+  7     );
+
+Table created.
+
+SQL> desc Student4
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUNO                                              NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ DEPTNO                                             NUMBER(2)
+ FEE                                                NUMBER(5)
+
+SQL> INSERT INTO dept VALUES (10, 'CSE');
+
+1 row created.
+
+SQL> INSERT INTO dept VALUES (20, 'ECE');
+
+1 row created.
+
+SQL> INSERT INTO dept VALUES (30, 'MECH');
+
+1 row created.
+
+SQL> select *from dept;
+
+    DEPTNO DNAME
+---------- --------------------
+        10 CSE
+        20 ECE
+        30 MECH
+
+SQL> desc dept
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(20)
+
+SQL> select *from dept
+  2
+SQL> select *from dept;
+
+    DEPTNO DNAME
+---------- --------------------
+        10 CSE
+        20 ECE
+        30 MECH
+
+SQL> INSERT INTO Student4 VALUES (1001, 'Rahul', 10, 25000);
+
+1 row created.
+
+SQL> INSERT INTO Student4 VALUES (1002, 'Priya', 20, 30000);
+
+1 row created.
+
+SQL> INSERT INTO Student4 VALUES (1003, 'Kiran', 30, 28000);
+
+1 row created.
+
+SQL> select *from Student4;
+
+     STUNO SNAME                    DEPTNO        FEE
+---------- -------------------- ---------- ----------
+      1001 Rahul                        10      25000
+      1002 Priya                        20      30000
+      1003 Kiran                        30      28000
+SQL> drop table student5;
+Table dropped.
+SQL> CREATE TABLE Student5 (
+  2      regno NUMBER(4),
+  3      sname VARCHAR2(20),
+  4      dob DATE,
+  5      fee NUMBER(5)
+  6          CONSTRAINT stu_fee_ck CHECK (fee >= 1000 AND fee <= 50000)
+  7  );
+
+Table created.
+SQL> drop table student6;
+
+Table dropped.
+SQL> CREATE TABLE Student6 (
+  2          regno NUMBER(4),
+  3        sname VARCHAR2(20),
+  4        dob DATE,
+  5         fee NUMBER(5),
+  6          CONSTRAINT stu6_fee_ck CHECK (fee >= 1000 AND fee <= 50000)
+  7      );
+
+Table created.
+
+SQL>     desc Student6
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ DOB                                                DATE
+ FEE                                                NUMBER(5)
+
+SQL>     desc Student5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ DOB                                                DATE
+ FEE                                                NUMBER(5)
+
+SQL> CREATE TABLE Student10 (
+  2      regno NUMBER(4),
+  3      sname VARCHAR2(20),
+  4      gender VARCHAR2(10) DEFAULT 'Female',
+  5      email VARCHAR2(50) CONSTRAINT stu_email_uk UNIQUE,
+  6      deptno NUMBER(2),
+  7      fee NUMBER(5),
+  8      CONSTRAINT stu_pk PRIMARY KEY (regno),
+  9      CONSTRAINT stu_fk FOREIGN KEY (deptno)
+ 10          REFERENCES Dept(deptno)
+ 11  );
+
+Table created.
+
+SQL> desc Student10
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ GENDER                                             VARCHAR2(10)
+ EMAIL                                              VARCHAR2(50)
+ DEPTNO                                             NUMBER(2)
+ FEE                                                NUMBER(5)
+
+SQL> CREATE TABLE dept1(
+  2      deptno NUMBER(2) PRIMARY KEY,
+  3      dname VARCHAR2(20)
+  4  );
+
+Table created.
+
+
+SQL> INSERT INTO dept1 VALUES (20, 'ECE');
+
+1 row created.
+
+SQL> INSERT INTO dept1 VALUES (10, 'CSE');
+
+1 row created.
+
+
+SQL> CREATE TABLE dept2(
+  2      deptno NUMBER(2) PRIMARY KEY,
+  3      dname VARCHAR2(20) not null
+  4  );
+
+Table created.
+
+SQL> INSERT INTO dept2 VALUES (10, 'CSE');
+
+1 row created.
+
+SQL> INSERT INTO dept2 VALUES (20, 'ECE');
+
+1 row created.
+
+SQL> drop table Student;
+
+Table dropped.
+
+
+SQL> CREATE TABLE Student(
+  2      regno VARCHAR2(10) PRIMARY KEY,
+  3      studentname VARCHAR2(20) NOT NULL,
+  4      gender CHAR(1) DEFAULT 'F',
+  5      age NUMBER CHECK (age < 100),
+  6      email VARCHAR2(15) UNIQUE,
+  7      deptno NUMBER(5) REFERENCES dept(deptno)
+  8  );
+
+Table created.
+
+SQL> desc student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(10)
+ STUDENTNAME                               NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER
+ EMAIL                                              VARCHAR2(15)
+ DEPTNO                                             NUMBER(5)
+
+
+SQL> INSERT INTO Student (regno, studentname, age, email, deptno)
+  2  VALUES ('155', 'yashaswini', 18, 'y@gmail.com', 30);
+
+1 row created.
+
+
+SQL> select * FROM Student;
+
+REGNO      STUDENTNAME          G        AGE EMAIL               DEPTNO
+---------- -------------------- - ---------- --------------- ----------
+155        yashaswini           F         18 y@gmail.com             30
+
+SQL>
